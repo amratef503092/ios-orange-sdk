@@ -16,11 +16,43 @@ The user taps a button → Flutter opens → user does stuff → Flutter closes 
 
 ## Step 0: Add the XCFrameworks to your project
 
-### 0.1 Download
+You have **two options**. Pick one:
+
+| Option | Best for |
+|---|---|
+| **Option A — Swift Package Manager (SPM)** | Easiest. One URL in Xcode. Auto-downloads everything. |
+| **Option B — Manual download** | If SPM doesn't work or you prefer manual control. |
+
+---
+
+### Option A: Swift Package Manager (recommended)
+
+1. Open your project in Xcode
+2. Go to **File → Add Package Dependencies...**
+3. Paste this URL:
+   ```
+   https://github.com/amratef503092/ios-orange-sdk
+   ```
+4. Set **Dependency Rule** to **Branch** → `main` (or **Up to Next Major** if using tagged versions)
+5. Click **Add Package**
+6. Xcode will download all 41 xcframeworks automatically
+7. Make sure **BeltoneTrade** is checked → click **Add Package**
+
+That's it! All frameworks are linked and embedded automatically.
+
+> **Note:** The first resolve takes a few minutes because it downloads ~176 MB of frameworks. After that, Xcode caches them.
+
+Skip to **Step 0.5** (Bridging Header) below.
+
+---
+
+### Option B: Manual download
+
+#### 0.1 Download
 
 Go to [Releases](https://github.com/amratef503092/ios-orange-sdk/releases) and download the latest `BeltoneTrade-iOS-Debug.zip`.
 
-### 0.2 Unzip and add to your project
+#### 0.2 Unzip and add to your project
 
 1. Unzip `BeltoneTrade-iOS-Debug.zip`
 2. Create a folder called `Flutter/Debug/` inside your Xcode project folder
@@ -43,7 +75,7 @@ YourApp/
         ├── ... (all other xcframeworks)
 ```
 
-### 0.3 Add to Xcode
+#### 0.3 Add to Xcode
 
 1. Open your `.xcworkspace` in Xcode
 2. Select your project → your target → **General** tab
@@ -52,7 +84,7 @@ YourApp/
 5. Select **all** `.xcframework` folders inside `Flutter/Debug/`
 6. Set each one to **Embed & Sign**
 
-### 0.4 Add Framework Search Path
+#### 0.4 Add Framework Search Path
 
 1. Go to **Build Settings** → search for **Framework Search Paths**
 2. Add this path:
@@ -60,6 +92,8 @@ YourApp/
 ```
 $(PROJECT_DIR)/Flutter/$(CONFIGURATION)/
 ```
+
+---
 
 ### 0.5 Add a Bridging Header
 
@@ -611,9 +645,9 @@ If you see `SIMULATION MODE` in the console → you forgot `setupHostChannel()`.
 
 ## Checklist
 
-- [ ] Downloaded XCFrameworks and put them in `Flutter/Debug/`
-- [ ] All XCFrameworks added to Xcode with **Embed & Sign**
-- [ ] Framework Search Paths has `$(PROJECT_DIR)/Flutter/$(CONFIGURATION)/`
+- [ ] XCFrameworks added via **SPM** (Option A) or **manual download** (Option B)
+- [ ] If manual: all XCFrameworks added to Xcode with **Embed & Sign**
+- [ ] If manual: Framework Search Paths has `$(PROJECT_DIR)/Flutter/$(CONFIGURATION)/`
 - [ ] Bridging Header set up with `GeneratedPluginRegistrant.h`
 - [ ] `GeneratedPluginRegistrant.h` and `.m` copied into project
 - [ ] AppDelegate has `setupHostChannel()` — **CRITICAL**

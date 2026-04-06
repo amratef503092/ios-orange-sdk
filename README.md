@@ -2,17 +2,24 @@
 
 Pre-built XCFrameworks for integrating the Beltone Trade Flutter module into a native iOS app.
 
-## Download
+## Swift Package Manager (recommended)
+
+In Xcode: **File → Add Package Dependencies...** → paste:
+
+```
+https://github.com/amratef503092/ios-orange-sdk
+```
+
+Set dependency rule to **Branch → main**. Xcode downloads and links all 41 frameworks automatically.
+
+## Manual Download
 
 Go to [Releases](https://github.com/amratef503092/ios-orange-sdk/releases) and download the latest `BeltoneTrade-iOS-Debug.zip`.
 
-## Setup
-
-1. Download and unzip `BeltoneTrade-iOS-Debug.zip`
-2. Create a `Flutter/Debug/` folder inside your Xcode project directory
-3. Move all `.xcframework` folders into `Flutter/Debug/`
-4. In Xcode: drag all xcframeworks into your project → **Embed & Sign**
-5. Add to **Build Settings → Framework Search Paths**:
+1. Unzip and create a `Flutter/Debug/` folder inside your Xcode project directory
+2. Move all `.xcframework` folders into `Flutter/Debug/`
+3. In Xcode: drag all xcframeworks into your project → **Embed & Sign**
+4. Add to **Build Settings → Framework Search Paths**:
    ```
    $(PROJECT_DIR)/Flutter/$(CONFIGURATION)/
    ```
