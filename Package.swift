@@ -121,12 +121,12 @@ let package = Package(
         .binaryTarget(
             name: "MLImage",
             url: "\(baseURL)/MLImage.xcframework.zip",
-            checksum: "011926446252a77d6fbab1d74a841a323d4e980d1e3c96cd6632fe5c6a3a7d16"
+            checksum: "8307c4ef957463540ae9cc71a6058bd6328a0f4393fe7e3479180b0b31968dc8"
         ),
         .binaryTarget(
             name: "MLKitCommon",
             url: "\(baseURL)/MLKitCommon.xcframework.zip",
-            checksum: "879b84d9b7b56493c33a23e66819975e71d446fc060d3e7d89049606200bafe9"
+            checksum: "9afb304b68cc25e1471e8e189efa2835d83c858c3082c9787a19250bb7ca8146"
         ),
         .binaryTarget(
             name: "MLKitFaceDetection",
@@ -136,7 +136,7 @@ let package = Package(
         .binaryTarget(
             name: "MLKitVision",
             url: "\(baseURL)/MLKitVision.xcframework.zip",
-            checksum: "2e2d89a29c1d4fbc16d2532305fb6cf786d87fc6b7538de48eeef13dbdfdc99d"
+            checksum: "7bf86d1490b03f65abd983b8b4cb17b48300e0917337f635058a7e41bae0f263"
         ),
         .binaryTarget(
             name: "Mantle",
