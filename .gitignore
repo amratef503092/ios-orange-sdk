@@ -1,0 +1,5 @@
+
+# Large binary files — distributed via GitHub Releases
+zips/
+*.zip
+!Package.swift
