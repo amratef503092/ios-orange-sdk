@@ -66,57 +66,57 @@ let package = Package(
         .binaryTarget(
             name: "App",
             url: "\(baseURL)/App.xcframework.zip",
-            checksum: "0e7874a7333ca39be8e7a030c392bfdabdd3760721ce1c47e9dbbf83fc49b7da"
+            checksum: "9a02bdff35f931232ea97f9871acab7d687c23051282d2b722881b58baaf5015"
         ),
         .binaryTarget(
             name: "Flutter",
             url: "\(baseURL)/Flutter.xcframework.zip",
-            checksum: "503f14783751a454e14196ad61b85fb6e87ab6b320e569e8eaa75b2b6ce2aedd"
+            checksum: "3f823e265318276095992630dab49f19c37cc374c46cdf7e91864acf724afa83"
         ),
         .binaryTarget(
             name: "CryptoSwift",
             url: "\(baseURL)/CryptoSwift.xcframework.zip",
-            checksum: "4cc387e5891c8b2d0b7eb555f1729bd84218b4551dedab8f688fee1de3a2a51e"
+            checksum: "0722f294d9228ca1e28d18b3bf37f25a33056c7dd461d794e713b011c48aaa03"
         ),
         .binaryTarget(
             name: "DKImagePickerController",
             url: "\(baseURL)/DKImagePickerController.xcframework.zip",
-            checksum: "2604a4eb3f293f0d5b0cbca9c6a1e6793a916420ee42c29aa7ada0dd638f319f"
+            checksum: "547b6a617dbf699df40d501dee35f296d58aadb09889ebaed410d787529774dc"
         ),
         .binaryTarget(
             name: "DKPhotoGallery",
             url: "\(baseURL)/DKPhotoGallery.xcframework.zip",
-            checksum: "a8e68c5801a65f46834b52ed0fae89ccdbc9953749da3fa34cfbae640b81004d"
+            checksum: "6600a41d64bd3fbb6be046e792c16effa031e5e3dde1c0d53d57d73a74ff82c0"
         ),
         .binaryTarget(
             name: "FBLPromises",
             url: "\(baseURL)/FBLPromises.xcframework.zip",
-            checksum: "7bbd83a8626c5b2dec51705e4d1cb5f1caa4a623de98f45ba6e0e9ea11390ffa"
+            checksum: "2d8901e2a1ec88c31984331493dfb6949ef9d6086f6d63d88836581c0d7f8baf"
         ),
         .binaryTarget(
             name: "GTMSessionFetcher",
             url: "\(baseURL)/GTMSessionFetcher.xcframework.zip",
-            checksum: "ccc1611d37d7268f9ad75009defe01a8ca2ed2bb825045744665b7b186855aec"
+            checksum: "e1e9990251a2b244b209557b7a7b5496102334cff6dccae53deb874377314af6"
         ),
         .binaryTarget(
             name: "GoogleDataTransport",
             url: "\(baseURL)/GoogleDataTransport.xcframework.zip",
-            checksum: "6050608dcc8a15011c38ec1e1e90cada609fac3b1f53ef1c98efd72d6dd143f7"
+            checksum: "0ea60dbbb1c1dd8429428783fb826829d1470bea7940636c0a9d9830990542d6"
         ),
         .binaryTarget(
             name: "GoogleToolboxForMac",
             url: "\(baseURL)/GoogleToolboxForMac.xcframework.zip",
-            checksum: "28c5c009d2f2c8128d2b8f2a7e62ecf3a99b2e6881d88de690569e929d7166a4"
+            checksum: "a10c4b441567d4ac7a1ec0f02e71fdd728833994f90311be754a3a472b15a9e7"
         ),
         .binaryTarget(
             name: "GoogleUtilities",
             url: "\(baseURL)/GoogleUtilities.xcframework.zip",
-            checksum: "f4955e50945afa8eebea7bf9283683090fb6764e2f098b2c22e8706860986b45"
+            checksum: "cadcf8de9eff4e70f63c2f7b41dc264a74fe441c3d0c30516c00cb0df4e1c16d"
         ),
         .binaryTarget(
             name: "IOSSecuritySuite",
             url: "\(baseURL)/IOSSecuritySuite.xcframework.zip",
-            checksum: "9fcd0e1d58c16752821416f02d03a89c5bd9f389bd2f44b5e4c9f789e4394f8d"
+            checksum: "ab534decc1cbc1e2972d4a39b688940d87b1a981143162a3e7596ab586a47b5d"
         ),
         .binaryTarget(
             name: "MLImage",
@@ -141,122 +141,122 @@ let package = Package(
         .binaryTarget(
             name: "Mantle",
             url: "\(baseURL)/Mantle.xcframework.zip",
-            checksum: "342aa509beb3f6e1c9299594446cff011e28050508b72e3b8d1094c666bb83d4"
+            checksum: "be49709c14bf9926814b519bb2c5a02fd42ec5f2e51fcbd2397422c2eefe2efc"
         ),
         .binaryTarget(
             name: "SDWebImage",
             url: "\(baseURL)/SDWebImage.xcframework.zip",
-            checksum: "476a7cc064ff40c3db71c44a05d71ed5e0dbf99ca86a2e6b7efed148ac30ad6e"
+            checksum: "cb8c72ee1a57e7178bb8057c5ac1f88f5d581f7da1c0e44be5bcdee647bdc2be"
         ),
         .binaryTarget(
             name: "SDWebImageWebPCoder",
             url: "\(baseURL)/SDWebImageWebPCoder.xcframework.zip",
-            checksum: "a4e69011b7fb05509897633af2d744a592a84c6b2be7a41a1a981f98e2f6d692"
+            checksum: "6c4f8e404dd0e2af4391afba0bedb485a0af9cbd2ffea3f53ad64c50d613fec8"
         ),
         .binaryTarget(
             name: "SwiftyGif",
             url: "\(baseURL)/SwiftyGif.xcframework.zip",
-            checksum: "22fbf01bda040c39ef062165b30585377f1afb5a7687033c6da905df2585fc78"
+            checksum: "55fb4e75fafd1fa86201fc39fc9f243c484433f936a16ca209b228e2abcb63d3"
         ),
         .binaryTarget(
             name: "camera_avfoundation",
             url: "\(baseURL)/camera_avfoundation.xcframework.zip",
-            checksum: "2870067a49e6212f60f090f6185e162b1f1b9a6ae2935c4c1f1a1ef8acdc976c"
+            checksum: "2704e96a4a4565efa7c9b76454ca88c0e6fa7d73607630696796a9d1f68e0f49"
         ),
         .binaryTarget(
             name: "connectivity_plus",
             url: "\(baseURL)/connectivity_plus.xcframework.zip",
-            checksum: "c5a26145ad9d56a9bc99645421538ecde734289d29add3c8888d9ca70a41bc87"
+            checksum: "cb7e46051d813258476c1c906dc3b1ca53014c00a9d74ba5cda53401e7c47df9"
         ),
         .binaryTarget(
             name: "device_info_plus",
             url: "\(baseURL)/device_info_plus.xcframework.zip",
-            checksum: "6b5275d805b9906fb5e3fb5fc44cbd444373104441c89c777955fbdd37a444d8"
+            checksum: "98e9fd9b0c46ddca66ad65e01fd8b86c818de5991b947813233098463a935633"
         ),
         .binaryTarget(
             name: "file_picker",
             url: "\(baseURL)/file_picker.xcframework.zip",
-            checksum: "3cc4f3bd0bd527d293afd96e193baa6cb326f68cc3d946daee0755777ea9f74c"
+            checksum: "d57438e71ab4615fa17f9476c9183519bdd8c1b9e93ce68b2e5c4fa43ea39f33"
         ),
         .binaryTarget(
             name: "flutter_image_compress_common",
             url: "\(baseURL)/flutter_image_compress_common.xcframework.zip",
-            checksum: "a8314c486942996a3e57e325fabc73935819b3322ba32d73b30e9b28b1c9c764"
+            checksum: "cbc62d159ef9cdc57073e64d64e28c2791100edc51a4e03061460a7882d480be"
         ),
         .binaryTarget(
             name: "flutter_liveness_detection_randomized_plugin",
             url: "\(baseURL)/flutter_liveness_detection_randomized_plugin.xcframework.zip",
-            checksum: "617e2a90480faf4fabc03da954e6a2cdf7ea1b2970ddec0cc97747dc21bc3731"
+            checksum: "58e6b729013a897088cff0461daa627e48d067ca3d8bc301f12c31692c642428"
         ),
         .binaryTarget(
             name: "flutter_secure_storage",
             url: "\(baseURL)/flutter_secure_storage.xcframework.zip",
-            checksum: "2f4972c34866b7e6ceb0e37900eb4f11061d39b90dc4b7c808fccfe415c8d399"
+            checksum: "9318c35a2ecc9ffdc97747e3187cd6a1f0ebe72da7492b551b705da82c5711eb"
         ),
         .binaryTarget(
             name: "geolocator_apple",
             url: "\(baseURL)/geolocator_apple.xcframework.zip",
-            checksum: "1f9a6aad1826c22858282b1a5e9fda332dd0b281bb65ff2cd7f07d528c17562d"
+            checksum: "b2539d74e64ce375d7887fd12a1d51276e8c8ce099d6a19424497ba17d03281e"
         ),
         .binaryTarget(
             name: "google_mlkit_commons",
             url: "\(baseURL)/google_mlkit_commons.xcframework.zip",
-            checksum: "100a4c459278216b4419823e176e976acee1d6aeb5064755b11970fe24075602"
+            checksum: "576240faa5f59ff7dd23e6cef74534a8184ea7a4a94b519b16ffd6db244fa223"
         ),
         .binaryTarget(
             name: "google_mlkit_face_detection",
             url: "\(baseURL)/google_mlkit_face_detection.xcframework.zip",
-            checksum: "7a23e327ec733e06326bbfb6b25846f8588a6d2aadeda6a6013e3366e92735dd"
+            checksum: "a2f7c70220898e0d8b79cabbca99fb7028e46660cd33bddf8ff69682ee40dcac"
         ),
         .binaryTarget(
             name: "image_picker_ios",
             url: "\(baseURL)/image_picker_ios.xcframework.zip",
-            checksum: "839ae4cca2ac072b1a1d981a1854437973f10a43e039002d89857d933f8f82f9"
+            checksum: "50e367e9a287dfe8e65de85630af42efc1f4deaf8be9c14f8e97ee663b3d70d4"
         ),
         .binaryTarget(
             name: "libwebp",
             url: "\(baseURL)/libwebp.xcframework.zip",
-            checksum: "58e4afe490f674577f291e94213a0450baab89207c565bdbb21b0bd1851e9ad9"
+            checksum: "af397835fa99fb31c48b578d75a534b1212e4c3e226e66ee1283ab98fd8215d8"
         ),
         .binaryTarget(
             name: "nanopb",
             url: "\(baseURL)/nanopb.xcframework.zip",
-            checksum: "118419618f73e8819dbc47d3e5410a401a52706b4e0d03c5a2cc70fb42b311c3"
+            checksum: "06a4b60cf18f2adb8bf83e1884b8c1c6e397e37b50dbbe555b45f4755c2d805a"
         ),
         .binaryTarget(
             name: "network_info_plus",
             url: "\(baseURL)/network_info_plus.xcframework.zip",
-            checksum: "4d19b45666e0b3ce04f57b82e9579369710d1d1bfe05522863cb2ab00d6e627e"
+            checksum: "b9832be2df08a490be1c5a36252503a536a83354674b1e52414d16e245c3a50f"
         ),
         .binaryTarget(
             name: "path_provider_foundation",
             url: "\(baseURL)/path_provider_foundation.xcframework.zip",
-            checksum: "5f3287e569f9e72467ed9edf84067abe6736f58b81436ae5b7d0180922072e2f"
+            checksum: "28b598ec5b46255db9da3cc7b61a788cd81f116bd20550614e5df62697cc080c"
         ),
         .binaryTarget(
             name: "permission_handler_apple",
             url: "\(baseURL)/permission_handler_apple.xcframework.zip",
-            checksum: "0c26b13b7478a868436113999616937538a22dec1d0788adcf32b5a15d1e03b2"
+            checksum: "433d859363b2ed0a9deaa265dd76e2520c0804936792b9c0f0afd246ac660903"
         ),
         .binaryTarget(
             name: "shared_preferences_foundation",
             url: "\(baseURL)/shared_preferences_foundation.xcframework.zip",
-            checksum: "e21ea78f19de2586c1c1738d041ce8dd46c383a0528f1d482ea63c83fdfb4160"
+            checksum: "63a3f557a8374fe3a3a6a80a2b1d962c9056ea22c3a042d7b1e272de68ef9628"
         ),
         .binaryTarget(
             name: "sqflite_darwin",
             url: "\(baseURL)/sqflite_darwin.xcframework.zip",
-            checksum: "268839303baf351d9ff3ff57f5b041f9af9c9fe89f57372f416e5b48d9906846"
+            checksum: "a491bba7b08291340d681d02ff80dffd3709c30a0b44b4b6811b2f7507e15f79"
         ),
         .binaryTarget(
             name: "url_launcher_ios",
             url: "\(baseURL)/url_launcher_ios.xcframework.zip",
-            checksum: "98415072a9c6a664aaeb52bc4980aa407f454b8a79f34393235c4846a457d6bd"
+            checksum: "038adbdd6edbd3b458000a1af459dc789c2a0bdbadf74bcbb9612ae796d83366"
         ),
         .binaryTarget(
             name: "webview_flutter_wkwebview",
             url: "\(baseURL)/webview_flutter_wkwebview.xcframework.zip",
-            checksum: "62d8d2113604d687f5100b92d8ce625bdc6c8ba78d131e492e6dd79f1058a3f8"
+            checksum: "b18f347671fe44a201fd2fcbea4e07d500429cc42b2cdd05c16c750ef3dee425"
         ),
     ]
 )
