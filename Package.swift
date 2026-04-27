@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let baseURL = "https://github.com/amratef503092/ios-orange-sdk/releases/download/v2.1-spm"
+let baseURL = "https://github.com/amratef503092/ios-orange-sdk/releases/download/v2.2-spm"
 
 let package = Package(
     name: "BeltoneTrade",
