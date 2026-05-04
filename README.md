@@ -1,117 +1,212 @@
-# Beltone Trade - iOS XCFrameworks
+# Beltone Trade — iOS SPM SDK
 
-Pre-built XCFrameworks for integrating the Beltone Trade Flutter module into a native iOS app.
+Beltone Trade Flutter module distributed as XCFrameworks via Swift Package Manager for native iOS integration.
 
----
+## Requirements
 
-## Option 1: Swift Package Manager (recommended)
+| Requirement | Version |
+|-------------|---------|
+| iOS Deployment Target | 13.0+ |
+| Xcode | 15.0+ |
+| Swift | 5.7+ |
 
-The easiest way. One URL, Xcode does everything.
+## Installation
 
-1. Open your project in Xcode
-2. Go to **File → Add Package Dependencies...**
-3. Paste this URL:
+### Swift Package Manager
+
+In Xcode:
+
+1. **File → Add Package Dependencies...**
+2. Enter the repository URL:
    ```
    https://github.com/amratef503092/ios-orange-sdk
    ```
-4. Set **Dependency Rule** to **Branch** → `main`
-5. Click **Add Package**
-6. Make sure **BeltoneTrade** is checked → click **Add Package**
+3. Set **Dependency Rule** to **Branch → `main`**
+4. Click **Add Package**
+5. Select the **BeltoneTrade** library and add it to your target
 
-Done. Xcode downloads and links all 41 frameworks automatically.
-
+> **Important:** Always open your project via `.xcworkspace`, not `.xcodeproj`.
+>
 > First resolve takes a few minutes (~176 MB total). After that, Xcode caches everything.
 
 ---
 
-## Option 2: Manual Download
+## Integration (Credentials Flow)
 
-If you prefer to manage frameworks manually.
+### Step 1: Start FlutterEngine in AppDelegate
 
-### Download
+Start the Flutter engine when the app launches and create a persistent `FlutterViewController`:
 
-| File | Link |
-|------|------|
-| All frameworks (one zip) | [BeltoneTrade-iOS-Debug.zip](https://github.com/amratef503092/ios-orange-sdk/releases/tag/v1.0) |
-| Individual frameworks | [v2.0-spm release](https://github.com/amratef503092/ios-orange-sdk/releases/tag/v2.0-spm) |
+```swift
+import UIKit
+import Flutter
 
-### Setup
+class AppDelegate: NSObject, UIApplicationDelegate {
+    lazy var flutterEngine = FlutterEngine(name: "beltone_engine")
+    var flutterVC: FlutterViewController!
 
-1. Unzip and create a `Flutter/Debug/` folder inside your Xcode project directory
-2. Move all `.xcframework` folders into `Flutter/Debug/`
-3. In Xcode → your target → **General** → **Frameworks, Libraries, and Embedded Content**
-4. Click **+** → **Add Other...** → select all `.xcframework` folders → **Embed & Sign**
-5. Go to **Build Settings** → **Framework Search Paths** → add:
-   ```
-   $(PROJECT_DIR)/Flutter/$(CONFIGURATION)/
-   ```
+    var enteredToken = ""
+    var enteredMobile = ""
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        flutterEngine.run()
+        GeneratedPluginRegistrant.register(with: flutterEngine)
+
+        // CRITICAL: Create FlutterViewController immediately after engine starts.
+        // Without this, presenting later shows a BLACK SCREEN because the engine
+        // ran headless without a rendering surface.
+        flutterVC = FlutterViewController(
+            engine: flutterEngine, nibName: nil, bundle: nil
+        )
+
+        setupHostChannel()
+
+        return true
+    }
+}
+```
+
+### Step 2: Setup Host Channel
+
+Handle Flutter's callbacks and respond to credential requests:
+
+```swift
+private let hostChannel = "com.beltonefinancial.beltonetrade/host"
+
+private func setupHostChannel() {
+    let channel = FlutterMethodChannel(
+        name: hostChannel,
+        binaryMessenger: flutterEngine.binaryMessenger
+    )
+    channel.setMethodCallHandler { (call, result) in
+        switch call.method {
+
+        // Flutter is initialized and ready
+        case "moduleReady":
+            print("Flutter module ready")
+            result(nil)
+
+        // Flutter pulls credentials from native
+        case "getOrangeCredentials":
+            if !self.enteredToken.isEmpty && !self.enteredMobile.isEmpty {
+                result([
+                    "token": self.enteredToken,
+                    "mobile": self.enteredMobile
+                ])
+            } else {
+                result(nil)
+            }
+
+        default:
+            result(nil)
+        }
+    }
+}
+```
+
+### Step 3: Push Credentials & Present Flutter
+
+Before presenting the Flutter screen, push the user's **token** and **mobile**:
+
+```swift
+func openBeltoneTrade(token: String, mobile: String) {
+    enteredToken = token
+    enteredMobile = mobile
+
+    // Present the persistent FlutterViewController
+    flutterVC.modalPresentationStyle = .fullScreen
+
+    guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let root = scene.windows.first?.rootViewController else { return }
+
+    root.present(flutterVC, animated: true) {
+        // Push credentials AFTER Flutter is fully visible
+        self.pushCredentialsToFlutter()
+    }
+}
+
+func pushCredentialsToFlutter() {
+    let channel = FlutterMethodChannel(
+        name: hostChannel,
+        binaryMessenger: flutterEngine.binaryMessenger
+    )
+    channel.invokeMethod("getCredentials", arguments: [
+        "token": enteredToken,
+        "mobile": enteredMobile
+    ])
+}
+```
+
+> **Important:** Push credentials in the `present()` completion handler — this ensures Flutter's rendering surface is ready before the push triggers navigation.
+
+### Credential Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `token` | `String` | Orange authentication token (UUID format) |
+| `mobile` | `String` | User's mobile number (e.g. `"01008137330"`) |
 
 ---
 
-## What's Included (41 frameworks)
+## Dismissing Flutter
 
-| Framework | Type |
-|-----------|------|
-| `App.xcframework` | Flutter app bundle |
-| `Flutter.xcframework` | Flutter engine |
-| `camera_avfoundation.xcframework` | Camera plugin |
-| `connectivity_plus.xcframework` | Network connectivity |
-| `CryptoSwift.xcframework` | Encryption |
-| `device_info_plus.xcframework` | Device info |
-| `DKImagePickerController.xcframework` | Image picker |
-| `DKPhotoGallery.xcframework` | Photo gallery |
-| `FBLPromises.xcframework` | Google Promises |
-| `file_picker.xcframework` | File picker |
-| `flutter_image_compress_common.xcframework` | Image compression |
-| `flutter_liveness_detection_randomized_plugin.xcframework` | Face liveness |
-| `flutter_pdfview.xcframework` | PDF viewer |
-| `flutter_secure_storage.xcframework` | Secure storage |
-| `geolocator_apple.xcframework` | Geolocation |
-| `google_mlkit_commons.xcframework` | ML Kit commons |
-| `google_mlkit_face_detection.xcframework` | Face detection |
-| `GoogleDataTransport.xcframework` | Google data transport |
-| `GoogleToolboxForMac.xcframework` | Google toolbox |
-| `GoogleUtilities.xcframework` | Google utilities |
-| `GTMSessionFetcher.xcframework` | HTTP session fetcher |
-| `image_picker_ios.xcframework` | Image picker (iOS) |
-| `IOSSecuritySuite.xcframework` | Security / jailbreak detection |
-| `libwebp.xcframework` | WebP image support |
-| `Mantle.xcframework` | Model framework |
-| `MLImage.xcframework` | ML image processing |
-| `MLKitCommon.xcframework` | ML Kit common |
-| `MLKitFaceDetection.xcframework` | ML Kit face detection |
-| `MLKitVision.xcframework` | ML Kit vision |
-| `nanopb.xcframework` | Protocol buffers |
-| `network_info_plus.xcframework` | Network info |
-| `open_settings_plus.xcframework` | Open settings |
-| `path_provider_foundation.xcframework` | File paths |
-| `permission_handler_apple.xcframework` | Permissions |
-| `SDWebImage.xcframework` | Image loading |
-| `SDWebImageWebPCoder.xcframework` | WebP decoder |
-| `shared_preferences_foundation.xcframework` | SharedPreferences |
-| `sqflite_darwin.xcframework` | SQLite database |
-| `SwiftyGif.xcframework` | GIF support |
-| `url_launcher_ios.xcframework` | URL launcher |
-| `webview_flutter_wkwebview.xcframework` | WebView |
+Flutter calls `goBackToNative` when the user is done. Listen on the navigation channel and dismiss:
+
+```swift
+private func setupNavigationChannel() {
+    let channel = FlutterMethodChannel(
+        name: "com.myorange/navigation",
+        binaryMessenger: flutterEngine.binaryMessenger
+    )
+    channel.setMethodCallHandler { [weak self] (call, result) in
+        guard call.method == "goBackToNative" else {
+            result(FlutterMethodNotImplemented)
+            return
+        }
+        DispatchQueue.main.async {
+            guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let root = scene.windows.first?.rootViewController else { return }
+            root.dismiss(animated: true)
+        }
+        result(nil)
+    }
+}
+```
 
 ---
 
-## After Adding Frameworks
+## Sequence Diagram
 
-You still need to set up the **MethodChannel** communication between your app and Flutter.
-
-See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for the complete step-by-step setup:
-- AppDelegate with 4 channels (host, auth, wallet, navigation)
-- Flutter wrapper view
-- Payment result handling
-- Working code examples
+```
+Native App                        Flutter Module
+    │                                   │
+    │── App Launch ──────────────────►  │ Engine starts, SplashScreen loads
+    │   flutterEngine.run()             │ (waits for credentials)
+    │   flutterVC = FlutterVC(engine)   │
+    │                                   │
+    │   User enters token + mobile      │
+    │                                   │
+    │── present(flutterVC) ──────────►  │ Flutter UI becomes visible
+    │                                   │
+    │── invokeMethod("getCredentials")─►│ Stores token + mobile
+    │   {token, mobile}                 │ Navigates to SplashScreen
+    │                                   │ Starts login with credentials
+    │                                   │
+    │◄── "moduleReady" ────────────────│ (optional) Flutter is ready
+    │                                   │
+    │◄── "onLoginResult" ─────────────│ Login success/failure
+    │   {status, token?, error?}        │
+    │                                   │
+    │◄── "goBackToNative" ────────────│ User is done
+    │   dismiss(animated: true)         │
+    │                                   │
+```
 
 ---
 
-## Quick Links
+## Reference Implementation
 
-| Resource | Link |
-|----------|------|
-| Integration Guide | [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) |
-| Working iOS Host Example | [github.com/amratef503092/ios-host](https://github.com/amratef503092/ios-host) |
-| All Releases | [Releases](https://github.com/amratef503092/ios-orange-sdk/releases) |
+See the full working example at [ios-host](https://github.com/amratef503092/ios-host).
