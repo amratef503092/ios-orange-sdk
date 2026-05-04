@@ -24,11 +24,8 @@ let package = Package(
                 "CryptoSwift",
                 "DKImagePickerController",
                 "DKPhotoGallery",
-                "FBLPromises",
                 "GTMSessionFetcher",
-                "GoogleDataTransport",
                 "GoogleToolboxForMac",
-                "GoogleUtilities",
                 "IOSSecuritySuite",
                 "MLImage",
                 "MLKitCommon",
@@ -50,7 +47,6 @@ let package = Package(
                 "google_mlkit_face_detection",
                 "image_picker_ios",
                 "libwebp",
-                "nanopb",
                 "network_info_plus",
                 "path_provider_foundation",
                 "permission_handler_apple",
@@ -89,29 +85,14 @@ let package = Package(
             checksum: "e9e2df79ba77a8dbd82fd6afeb6e41e3203ed0d9c95de84b4973fb3ee174ac04"
         ),
         .binaryTarget(
-            name: "FBLPromises",
-            url: "\(baseURL)/FBLPromises.xcframework.zip",
-            checksum: "90b343d4fa38934f3e03cee3c6d3e69dc7c59a85f8120554276cce241a8c9343"
-        ),
-        .binaryTarget(
             name: "GTMSessionFetcher",
             url: "\(baseURL)/GTMSessionFetcher.xcframework.zip",
             checksum: "5475c910c43fafbbc3de8d4288c6df37f86d53f5714db32fb821bc0198b5e721"
         ),
         .binaryTarget(
-            name: "GoogleDataTransport",
-            url: "\(baseURL)/GoogleDataTransport.xcframework.zip",
-            checksum: "5bb3d88ab739f4f3dc198aecfddc48117a267cc996ed38c656529808b8fc2914"
-        ),
-        .binaryTarget(
             name: "GoogleToolboxForMac",
             url: "\(baseURL)/GoogleToolboxForMac.xcframework.zip",
             checksum: "c9000d5fb571e40777d78876259400b5282209b80e9eb9388db7d2ca0625d315"
-        ),
-        .binaryTarget(
-            name: "GoogleUtilities",
-            url: "\(baseURL)/GoogleUtilities.xcframework.zip",
-            checksum: "88760b0e1db929bf09d984ca1b42b797718469c06adaf260c96d01f32c37d175"
         ),
         .binaryTarget(
             name: "IOSSecuritySuite",
@@ -217,11 +198,6 @@ let package = Package(
             name: "libwebp",
             url: "\(baseURL)/libwebp.xcframework.zip",
             checksum: "8ce9a1dba77cb7f9891f9c4f0fe4ab8a97145f9d833fdda729e4a2239730ebef"
-        ),
-        .binaryTarget(
-            name: "nanopb",
-            url: "\(baseURL)/nanopb.xcframework.zip",
-            checksum: "3c38bfccec39bde977974d283bf3a5a0f35a459b0aabd7c205d9a661cd5c96c4"
         ),
         .binaryTarget(
             name: "network_info_plus",
