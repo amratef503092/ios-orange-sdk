@@ -24,10 +24,6 @@ let package = Package(
                 "GTMSessionFetcher",
                 "GoogleToolboxForMac",
                 "IOSSecuritySuite",
-                "MLImage",
-                "MLKitCommon",
-                "MLKitFaceDetection",
-                "MLKitVision",
                 "Mantle",
                 "SDWebImage",
                 "SDWebImageWebPCoder",
@@ -99,26 +95,6 @@ let package = Package(
             name: "IOSSecuritySuite",
             url: "\(baseURL)/IOSSecuritySuite.xcframework.zip",
             checksum: "0c3db8057416bbf87146f77707ef92e610bdb7cb6d37bf6f01036d54efb4afc7"
-        ),
-        .binaryTarget(
-            name: "MLImage",
-            url: "\(baseURL)/MLImage.xcframework.zip",
-            checksum: "d5b2405a2116aec0eea799b494a15705f2e0e12de8058f1a4f4e7d3a06c6c792"
-        ),
-        .binaryTarget(
-            name: "MLKitCommon",
-            url: "\(baseURL)/MLKitCommon.xcframework.zip",
-            checksum: "b1b06e380c9ee2b72616bb9459113213250cb2a1ea682f0905e17e8a4d6429c3"
-        ),
-        .binaryTarget(
-            name: "MLKitFaceDetection",
-            url: "\(baseURL)/MLKitFaceDetection.xcframework.zip",
-            checksum: "fa92c0d1ac162e4fd6f4a41dd04735c3dec9e1386d0201bf1d4867887f7c5681"
-        ),
-        .binaryTarget(
-            name: "MLKitVision",
-            url: "\(baseURL)/MLKitVision.xcframework.zip",
-            checksum: "d502da77dc89569a8c22335b9cf773215f26a249448ce3897fcfc4950ba15d23"
         ),
         .binaryTarget(
             name: "Mantle",
